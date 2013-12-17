@@ -18,7 +18,7 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= image_tag @pin.image.url(:medium) %></td>
+        <td><%= image_tag profile.image.url(:medium) %></td>
         <td><%= profile.name %></td>
         <td><%= profile.job %></td>
         <td><%= profile.city %></td>
