@@ -1,5 +1,5 @@
 Wam::Application.routes.draw do
-  resources :profils
+  resources :profiles
 
   devise_for :users
   root "pages#home"
