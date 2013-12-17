@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Name</th>
       <th>Job</th>
       <th>City</th>
@@ -17,14 +18,17 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
+        <td><%= image_tag @pin.image.url(:medium) %></td>
         <td><%= profile.name %></td>
         <td><%= profile.job %></td>
         <td><%= profile.city %></td>
         <td><%= profile.aboutme %></td>
         <td><%= profile.email %></td>
         <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if profile.user == current_user %>
+          <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+          <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +36,6 @@
 
 <br>
 
-<%= link_to 'New Profile', new_profile_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Profile', new_profile_path %>
+<% end %>

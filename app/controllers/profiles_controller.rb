@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @profiles = Profile.all
@@ -57,6 +58,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name, :job, :city, :aboutme, :email)
+      params.require(:profile).permit(:name, :job, :city, :aboutme, :email, :image)
     end
 end
