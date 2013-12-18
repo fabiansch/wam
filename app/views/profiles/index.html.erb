@@ -10,8 +10,14 @@
         <%= profile.email %>
         <%= link_to 'Show', profile %>
         <% if profile.user == current_user %>
-          <%= link_to 'Edit', edit_profile_path(profile) %></td>
-          <%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to edit_profile_path(profile) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+          <% end %>
+          <%= link_to profile, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+          <% end %>
         <% end %>
       </div>
     </div>

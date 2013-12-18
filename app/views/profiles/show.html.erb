@@ -14,7 +14,10 @@
         <p><strong><%= @profile.user.email if @profile.user %></strong></p>
 
         <% if @profile.user == current_user %>
-         <%= link_to 'Edit', edit_profile_path(@profile) %>
+          <%= link_to edit_profile_path(@profile) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+            Edit
+          <% end %>
         <% end %>
 
       </div>
