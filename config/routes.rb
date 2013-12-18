@@ -2,7 +2,7 @@ Wam::Application.routes.draw do
   resources :profiles
 
   devise_for :users
-  root "pages#home"
+  root "profiles#index"
   get "about" => "pages#about"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
