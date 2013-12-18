@@ -17,16 +17,13 @@ gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 
 group :development, :test do
-     gem 'sqlite3'
+  gem 'sqlite3'
+  gem 'rspec-rails', '~> 3.0.0.beta'
 end
 
 group :production do
      gem 'pg'
      gem 'rails_12factor'
-end
-
-group :test do
-  gem 'rspec'
 end
 
 group :doc do
