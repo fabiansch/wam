@@ -11,7 +11,6 @@
         <%= profile.name %></br>
         <%= profile.job %></br>
         <%= profile.city %></br>
-        <%= link_to 'Show', profile %>
         <% if profile.user == current_user %>
           <%= link_to edit_profile_path(profile) do %>
               <span class="glyphicon glyphicon-edit"></span>
