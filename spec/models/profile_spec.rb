@@ -14,5 +14,6 @@ describe Profile do
     it { should respond_to(:job) }
     it { should respond_to(:city) }
     it { should respond_to(:aboutme) }
+    it { should respond_to(:user) }
   end
 end
