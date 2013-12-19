@@ -1,2 +1,2 @@
 object @profile
-attributes :id, :name, :city, :job, :aboutme
+attributes :id, :name, :city, :job, :aboutme, :gravatar_url
