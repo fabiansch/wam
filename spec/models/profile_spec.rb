@@ -14,20 +14,21 @@ describe Profile do
     it { should respond_to(:city) }
     it { should respond_to(:aboutme) }
     it { should respond_to(:user) }
+    it { should respond_to(:gravatar_email) }
   end
 
-  describe "image urls" do
-    profile = FactoryGirl.create(:profile)
-
-    it "has a valid gravatar email" do
-      profile.gravatar_email = '123456@wam.com'
-      expect(profile.gravatar_url).to eq('http://www.gravatar.com/avatar/7bed7e6074236f335598d8b3c7b5cbe4')
+  describe "image url" do
+    it "returns user email hash if no gravatar email is given" do
+      profile = FactoryGirl.create(:profile)
+      profile.user = FactoryGirl.create(:user)
+      profile.user.email = 'hallo@wam.com'
+      expect(profile.gravatar_url).to eq('http://www.gravatar.com/avatar/1a0dc1158248d76b300740262f2c0667')
     end
 
-    it "has uses normal email if no gravatar email is provided" do
-      profile.user = FactoryGirl.create(:user)
-      profile.user.email = '12@wam.com'
-      expect(profile.gravatar_url).to eq('http://www.gravatar.com/avatar/83a512e6fea16d1ab59a7d6ae63c87a1')
+    it "returns a valid gravatar image url" do
+      profile = FactoryGirl.create(:profile)
+      profile.gravatar_email = '123456@wam.com'
+      expect(profile.gravatar_url).to eq('http://www.gravatar.com/avatar/7bed7e6074236f335598d8b3c7b5cbe4')
     end
   end
 end
