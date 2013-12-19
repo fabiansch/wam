@@ -1,6 +1,6 @@
 # We are many
 
-[![Build Status](https://travis-ci.org/fabiansch/wam.png?branch=rspec)](https://travis-ci.org/fabiansch/wam)
+[![Build Status](https://travis-ci.org/fabiansch/wam.png)](https://travis-ci.org/fabiansch/wam)
 
 ## Run the server
 
