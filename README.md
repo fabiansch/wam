@@ -1,5 +1,7 @@
 # We are many
 
+[![Build Status](https://travis-ci.org/fabiansch/wam.png?branch=rspec)](https://travis-ci.org/fabiansch/wam)
+
 ## Run the server
 
 After cloning and running `bundle install --without production` make sure you setup your database with `bundle exec rake db:migrate`.
