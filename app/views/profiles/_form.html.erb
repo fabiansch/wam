@@ -10,12 +10,6 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= f.label :image %>
-    <%= f.file_field :image, class: "form-control" %>
-  </div>
-
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %>
@@ -33,8 +27,8 @@
     <%= f.text_field :aboutme, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: "form-control" %>
+    <%= f.label :gravatar_email %>
+    <%= f.text_field :gravatar_email, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>
