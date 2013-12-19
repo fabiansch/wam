@@ -15,4 +15,12 @@ describe Profile do
     it { should respond_to(:aboutme) }
     it { should respond_to(:user) }
   end
+
+  describe "image urls" do
+    profile = FactoryGirl.create(:profile)
+    profile.gravatar_email = '123456@wam.com'
+    it "has a vadlid gravatar email" do
+      expect(profile.gravatar_url).to eq('http://www.gravatar.com/avatar/7bed7e6074236f335598d8b3c7b5cbe4')
+    end
+  end
 end

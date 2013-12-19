@@ -1,4 +1,8 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
-  has_attached_file :image, :styles => { :large => "500x500", :medium => "300x300>", :thumb => "100x100>" }
+
+  def gravatar_url
+    gravatar_email_hash = Digest::MD5.hexdigest(gravatar_email)
+    "http://www.gravatar.com/avatar/#{gravatar_email_hash}"
+  end
 end
