@@ -8,6 +8,10 @@ describe PagesController do
       expect(response).to be_success
       expect(response.status).to eq(200)
     end
-  end
 
+    it "renders the about template" do
+      get :about
+      expect(response).to render_template("about")
+    end
+  end
 end
