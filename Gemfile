@@ -17,8 +17,11 @@ gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 
 group :development, :test do
-    gem 'sqlite3'
-    gem 'zeus'
+  gem 'sqlite3'
+  gem 'zeus'
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :production do
