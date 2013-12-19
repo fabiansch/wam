@@ -18,9 +18,16 @@ describe Profile do
 
   describe "image urls" do
     profile = FactoryGirl.create(:profile)
-    profile.gravatar_email = '123456@wam.com'
-    it "has a vadlid gravatar email" do
+
+    it "has a valid gravatar email" do
+      profile.gravatar_email = '123456@wam.com'
       expect(profile.gravatar_url).to eq('http://www.gravatar.com/avatar/7bed7e6074236f335598d8b3c7b5cbe4')
+    end
+
+    it "has uses normal email if no gravatar email is provided" do
+      profile.user = FactoryGirl.create(:user)
+      profile.user.email = '12@wam.com'
+      expect(profile.gravatar_url).to eq('http://www.gravatar.com/avatar/83a512e6fea16d1ab59a7d6ae63c87a1')
     end
   end
 end
