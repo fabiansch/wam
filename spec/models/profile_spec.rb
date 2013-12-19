@@ -9,7 +9,6 @@ describe Profile do
     profile = FactoryGirl.create(:profile)
     subject { profile }
     it { should respond_to(:id) }
-    it { should respond_to(:email) }
     it { should respond_to(:name) }
     it { should respond_to(:job) }
     it { should respond_to(:city) }
