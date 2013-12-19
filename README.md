@@ -1,6 +1,7 @@
 # We are many
 
 [![Build Status](https://travis-ci.org/fabiansch/wam.png?branch=master)](https://travis-ci.org/fabiansch/wam)
+[![Coverage Status](https://coveralls.io/repos/fabiansch/wam/badge.png)](https://coveralls.io/r/fabiansch/wam)
 
 ## Run the server
 
