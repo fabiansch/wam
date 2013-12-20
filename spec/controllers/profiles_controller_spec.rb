@@ -46,4 +46,26 @@ describe ProfilesController do
       expect(profile.id).to eq(@profile.id)
     end
   end
+
+  describe "edit" do
+    before(:each) do
+      sign_in
+      @profile = instance_double("Profile", id: 1)
+      get :edit, id: @profile.id
+    end
+
+    it "responds successfully" do
+      expect(response).to be_success
+      expect(response.status).to eq(200)
+    end
+
+    it "renders the edit template" do
+      expect(response).to render_template("edit")
+    end
+
+    it "load a profile" do
+      profile = assigns(:profile)
+      expect(profile.id).to eq(@profile.id)
+    end
+  end
 end
