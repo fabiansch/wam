@@ -1,7 +1,16 @@
 language: ruby
 rvm:
-  - "2.0.0"
+  - 2.0.0
 before_script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
 script:
   - RAILS_ENV=test bundle exec rake spec
+deploy:
+  provider: heroku
+  api_key:
+    secure: F5xP+i520NvKqQQ01QEuURKhZOthxpX72Fjb0YNKiKAKxC1T9nAYrzcrOZFzUkYmOoTy93pMyr++Q9M4Egvwrp2OU7fUl1XzEHbQPyvl32KC8UfvsImVDjVN476Rjd5UVyQiHl8K0Ld/SCrYo+BkFIrX2W8U2NQz2uiXRSKCnTI=
+  app: wam
+  on:
+    repo: fabiansch/wam
+    branch: master
+  run: "rake db:migrate"
