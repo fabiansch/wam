@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @profiles = Profile.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
   end
 
   def new
-      @profile = current_user.build_profile
+    @profile = current_user.build_profile
   end
 
   def edit
