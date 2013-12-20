@@ -26,26 +26,24 @@ describe ProfilesController do
   end
 
   describe "show" do
-    it "responds successfully" do
+    before(:each) do
       sign_in
-      profile = FactoryGirl.create(:profile)
-      get :show, id: profile.id
+      @profile = instance_double("Profile", id: 1)
+      get :show, id: @profile.id
+    end
+
+    it "responds successfully" do
       expect(response).to be_success
       expect(response.status).to eq(200)
     end
 
     it "renders the show template" do
-      sign_in
-      profile = FactoryGirl.create(:profile)
-      get :show, id: profile.id
       expect(response).to render_template("show")
     end
 
     it "loads a profile" do
-      sign_in
-      profile = FactoryGirl.create(:profile)
-      get :show, id: profile.id
-      expect(assigns(:profile)).to eq(profile)
+      profile = assigns(:profile)
+      expect(profile.id).to eq(@profile.id)
     end
   end
 end
