@@ -13,8 +13,17 @@ describe Profile do
     it { should respond_to(:job) }
     it { should respond_to(:city) }
     it { should respond_to(:aboutme) }
+    it { should respond_to(:company) }
     it { should respond_to(:user) }
     it { should respond_to(:gravatar_email) }
+    it { should respond_to(:twitter_handle) }
+    it { should respond_to(:xing_handle) }
+    it { should respond_to(:linkedin_handle) }
+  end
+
+  describe "all class methods are accessible" do
+    subject { Profile }
+    it { should respond_to(:allowed_params) }
   end
 
   describe "image url" do

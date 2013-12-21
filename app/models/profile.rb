@@ -6,4 +6,9 @@ class Profile < ActiveRecord::Base
     hash = Digest::MD5.hexdigest(user.email) if hash.blank?
     "http://www.gravatar.com/avatar/#{hash}"
   end
+
+  def self.allowed_params
+    [:name, :job, :city, :aboutme, :gravatar_email, :company,
+      :twitter_handle, :xing_handle, :linkedin_handle]
+  end
 end
