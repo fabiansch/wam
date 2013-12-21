@@ -47,6 +47,25 @@ describe ProfilesController do
     end
   end
 
+  describe "new" do
+    before(:each) do
+      sign_in
+      @profile_params = FactoryGirl.attributes_for(:profile)
+      @profile = FactoryGirl.create(:profile, @profile_attr)
+      allow(controller.current_user).to receive(:build_profile).and_return(@profile)
+    end
+
+    it "save the profile to the user" do
+      post :new, profile: @profile_params
+      profile = assigns(:profile)
+      expect(profile.name).to eq(@profile.name)
+      expect(profile.job).to eq(@profile[:job])
+      expect(profile.city).to eq(@profile[:city])
+      expect(profile.aboutme).to eq(@profile[:aboutme])
+      expect(profile.gravatar_email).to eq(@profile[:gravatar_email])
+    end
+  end
+
   describe "edit" do
     before(:each) do
       sign_in
