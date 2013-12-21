@@ -82,4 +82,36 @@ describe ProfilesController do
       expect(subject).to redirect_to(profile_path(@profile.id))
     end
   end
+
+  describe "update" do
+    before(:each) do
+      sign_in
+      @profile = FactoryGirl.create(:profile)
+    end
+
+    it "updates a profile" do
+      params = {name: "Jim Block",
+                job: "Chef",
+                city: "Hamburg, Germany",
+                aboutme: "Just cookin' all day long",
+                gravatar_email: "jim@block.com"}
+      put :update, id: @profile.id, profile: params
+      expect(subject).to redirect_to(profile_path(@profile.id))
+      updated_profile = assigns(:profile)
+      expect(updated_profile.name).to eq(params[:name])
+      expect(updated_profile.job).to eq(params[:job])
+      expect(updated_profile.city).to eq(params[:city])
+      expect(updated_profile.aboutme).to eq(params[:aboutme])
+      expect(updated_profile.gravatar_email).to eq(params[:gravatar_email])
+      expect(response.status).to eq(302)
+    end
+
+    it "deletes gravatar email when not given" do
+      @profile.gravatar_email = "something"
+      params = {gravatar_email: ""}
+      put :update, id: @profile.id, profile: params
+      updated_profile = assigns(:profile)
+      expect(updated_profile.gravatar_email).to eq("")
+    end
+  end
 end
