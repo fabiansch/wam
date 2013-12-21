@@ -7,6 +7,18 @@ class Profile < ActiveRecord::Base
     "http://www.gravatar.com/avatar/#{hash}"
   end
 
+  def twitter_url
+    "https://www.twitter.com/#{twitter_handle}" unless twitter_handle.blank?
+  end
+
+  def xing_url
+    "https://www.xing.com/#{xing_handle}" unless xing_handle.blank?
+  end
+
+  def linkedin_url
+    "https://www.linkedin.com/#{linkedin_handle}" unless linkedin_handle.blank?
+  end
+
   def self.allowed_params
     [:name, :job, :city, :aboutme, :gravatar_email, :company,
       :twitter_handle, :xing_handle, :linkedin_handle]

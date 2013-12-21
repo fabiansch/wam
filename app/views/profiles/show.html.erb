@@ -9,8 +9,12 @@
       <div class="panel-body">
         <p><%= @profile.name %></p>
         <p><%= @profile.job %></p>
+        <p><%= @profile.company %></p>
         <p><%= @profile.city %></p>
         <p><%= @profile.aboutme %></p>
+        <p><%= @profile.twitter_url %></p>
+        <p><%= @profile.xing_url %></p>
+        <p><%= @profile.linkedin_url %></p>
 
         <% if @profile.user == current_user %>
           <%= link_to edit_profile_path(@profile) do %>
