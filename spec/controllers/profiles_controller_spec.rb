@@ -68,4 +68,18 @@ describe ProfilesController do
       expect(profile.id).to eq(@profile.id)
     end
   end
+
+  describe "create" do
+    before(:each) do
+      sign_in
+      @profile_attr = FactoryGirl.attributes_for(:profile)
+      @profile = FactoryGirl.create(:profile, @profile_attr)
+      allow(controller.current_user).to receive(:build_profile).and_return(@profile)
+    end
+
+    it "responds with created" do
+      post :create, profile: @profile_attr
+      expect(subject).to redirect_to(profile_path(@profile.id))
+    end
+  end
 end
