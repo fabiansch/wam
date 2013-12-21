@@ -114,4 +114,17 @@ describe ProfilesController do
       expect(updated_profile.gravatar_email).to eq("")
     end
   end
+
+  describe "destroy" do
+    before(:each) do
+      sign_in
+      @profile = FactoryGirl.create(:profile)
+    end
+
+    it "deletes the profile" do
+      delete :destroy, id: @profile.id
+      expect(subject).to redirect_to(profiles_path)
+      expect { Profile.find(@profile.id) }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+  end
 end
