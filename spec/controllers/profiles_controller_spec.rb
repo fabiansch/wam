@@ -132,6 +132,13 @@ describe ProfilesController do
       expect(response.status).to eq(302)
     end
 
+    it "renders edit action when update failed" do
+      Profile.stub(:new) { mock_model(Profile, :update => false) }
+      Profile.stub(:find).and_return(Profile.new)
+      put :update, id: 1, profile: {profile: {}}
+      response.should render_template(:edit)
+    end
+
     it "deletes gravatar email when not given" do
       @profile.gravatar_email = "something"
       params = {gravatar_email: ""}
