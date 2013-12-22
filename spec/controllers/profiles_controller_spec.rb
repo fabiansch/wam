@@ -91,14 +91,22 @@ describe ProfilesController do
   describe "create" do
     before(:each) do
       sign_in
-      @profile_attr = FactoryGirl.attributes_for(:profile)
-      @profile = FactoryGirl.create(:profile, @profile_attr)
-      allow(controller.current_user).to receive(:build_profile).and_return(@profile)
     end
 
     it "responds with created" do
-      post :create, profile: @profile_attr
-      expect(subject).to redirect_to(profile_path(@profile.id))
+      profile = FactoryGirl.create(:profile, @profile_attr)
+      allow(controller.current_user).to receive(:build_profile).and_return(profile)
+      profile_attr = FactoryGirl.attributes_for(:profile)
+      post :create, profile: profile_attr
+      expect(subject).to redirect_to(profile_path(profile.id))
+    end
+
+    it "responds with error" do
+      Profile.stub(:new) { mock_model(Profile, :save => false) }
+      profile_mock = Profile.new
+      allow(controller.current_user).to receive(:build_profile).and_return(profile_mock)
+      post :create, profile: {profile: {}}
+      response.should render_template(:new)
     end
   end
 
