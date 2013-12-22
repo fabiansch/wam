@@ -13,8 +13,20 @@ describe Profile do
     it { should respond_to(:job) }
     it { should respond_to(:city) }
     it { should respond_to(:aboutme) }
+    it { should respond_to(:company) }
     it { should respond_to(:user) }
     it { should respond_to(:gravatar_email) }
+    it { should respond_to(:twitter_handle) }
+    it { should respond_to(:twitter_url) }
+    it { should respond_to(:xing_handle) }
+    it { should respond_to(:xing_url) }
+    it { should respond_to(:linkedin_handle) }
+    it { should respond_to(:linkedin_url) }
+  end
+
+  describe "all class methods are accessible" do
+    subject { Profile }
+    it { should respond_to(:allowed_params) }
   end
 
   describe "image url" do
@@ -29,6 +41,54 @@ describe Profile do
       profile = FactoryGirl.create(:profile)
       profile.gravatar_email = '123456@wam.com'
       expect(profile.gravatar_url).to eq('http://www.gravatar.com/avatar/7bed7e6074236f335598d8b3c7b5cbe4')
+    end
+  end
+
+  describe "twitter url" do
+    before(:all) do
+      @profile = FactoryGirl.create(:profile)
+    end
+
+    it "returns twitter url if handle is givne" do
+      @profile.twitter_handle = 'jim_block'
+      expect(@profile.twitter_url).to eq("https://www.twitter.com/jim_block")
+    end
+
+    it "returns nothing if no handle is given" do
+      @profile.twitter_handle = nil
+      expect(@profile.twitter_url).to be_blank
+    end
+  end
+
+  describe "xing url" do
+    before(:all) do
+      @profile = FactoryGirl.create(:profile)
+    end
+
+    it "returns xing url if handle is givne" do
+      @profile.xing_handle = 'jim_block'
+      expect(@profile.xing_url).to eq("https://www.xing.com/jim_block")
+    end
+
+    it "returns nothing if no handle is given" do
+      @profile.xing_handle = nil
+      expect(@profile.xing_url).to be_blank
+    end
+  end
+
+  describe "linkedin url" do
+    before(:all) do
+      @profile = FactoryGirl.create(:profile)
+    end
+
+    it "returns linkedin url if handle is givne" do
+      @profile.linkedin_handle = 'jim_block'
+      expect(@profile.linkedin_url).to eq("https://www.linkedin.com/jim_block")
+    end
+
+    it "returns nothing if no handle is given" do
+      @profile.linkedin_handle = nil
+      expect(@profile.linkedin_url).to be_blank
     end
   end
 end
