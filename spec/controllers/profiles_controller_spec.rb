@@ -96,8 +96,7 @@ describe ProfilesController do
     it "responds with created" do
       profile = FactoryGirl.create(:profile, @profile_attr)
       allow(controller.current_user).to receive(:build_profile).and_return(profile)
-      profile_attr = FactoryGirl.attributes_for(:profile)
-      post :create, profile: profile_attr
+      post :create, profile: {profile: {}}
       expect(subject).to redirect_to(profile_path(profile.id))
     end
 
