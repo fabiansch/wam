@@ -27,8 +27,8 @@
     <%= f.text_field :city, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :aboutme %>
-    <%= f.text_field :aboutme, class: "form-control" %>
+    <%= f.label "About me" %>
+    <%= f.text_area :aboutme, class: "form-control", :cols => "10", :rows => "10" %>
   </div>
   <div class="form-group">
     <%= f.label "Twitter username" %>
