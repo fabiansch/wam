@@ -11,20 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131221133839) do
+ActiveRecord::Schema.define(version: 20131227162052) do
 
   create_table "profiles", force: true do |t|
     t.string   "name"
     t.string   "job"
     t.string   "city"
-    t.string   "aboutme"
+    t.text     "aboutme",         limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
     t.string   "gravatar_email"
     t.string   "company"
     t.string   "twitter_handle"
