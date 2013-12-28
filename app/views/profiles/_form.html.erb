@@ -31,16 +31,27 @@
     <%= f.text_area :aboutme, class: "form-control", :cols => "10", :rows => "10" %>
   </div>
   <div class="form-group">
-    <%= f.label "Twitter username" %>
-    <%= f.text_field :twitter_handle, class: "form-control" %>
+    <p>
+      <strong>Find me on:</strong>
+    </p>
   </div>
   <div class="form-group">
-    <%= f.label "XING username" %>
-    <%= f.text_field :xing_handle, class: "form-control" %>
+    <p>
+      <strong>https://twitter.com/</strong>
+      <%= f.text_field :twitter_handle %>
+    </p>
   </div>
   <div class="form-group">
-    <%= f.label "LinkedIn username" %>
-    <%= f.text_field :linkedin_handle, class: "form-control" %>
+    <p>
+      <strong>https://xing.com/</strong>
+      <%= f.text_field :xing_handle %>
+    </p>
+  </div>
+  <div class="form-group">
+    <p>
+      <strong>https://linkedin.com/</strong>
+      <%= f.text_field :linkedin_handle %>
+    </p>
   </div>
   <div class="form-group">
     <%= f.label :gravatar_email %>
