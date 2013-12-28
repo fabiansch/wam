@@ -51,11 +51,11 @@ describe Profile do
       end
 
       it "returns a image url with medium size" do
-        expect(@profile.gravatar_url(:medium)).to eq("#{@url}?s=200")
+        expect(@profile.gravatar_url(:medium)).to eq("#{@url}?s=400")
       end
 
       it "returns a image url with big size" do
-        expect(@profile.gravatar_url(:big)).to eq("#{@url}?s=400")
+        expect(@profile.gravatar_url(:big)).to eq("#{@url}?s=1024")
       end
     end
 
@@ -75,11 +75,11 @@ describe Profile do
       end
 
       it "returns a image url with medium size" do
-        expect(@profile.gravatar_url(:medium)).to eq("#{@url}?s=200")
+        expect(@profile.gravatar_url(:medium)).to eq("#{@url}?s=400")
       end
 
       it "returns a image url with big size" do
-        expect(@profile.gravatar_url(:big)).to eq("#{@url}?s=400")
+        expect(@profile.gravatar_url(:big)).to eq("#{@url}?s=1024")
       end
     end
   end

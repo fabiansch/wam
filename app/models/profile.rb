@@ -8,9 +8,9 @@ class Profile < ActiveRecord::Base
     when :small
       hash << '?s=40'
     when :medium
-      hash << '?s=200'
-    when :big
       hash << '?s=400'
+    when :big
+      hash << '?s=1024'
     end
     "http://www.gravatar.com/avatar/#{hash}"
   end
