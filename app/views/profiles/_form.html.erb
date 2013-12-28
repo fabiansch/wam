@@ -47,6 +47,34 @@
     <%= f.text_field :gravatar_email, class: "form-control" %>
   </div>
   <div class="form-group">
+    <p>
+      <strong>I want to ...</strong>
+    </p>
+  </div>
+  <div class="form-group">
+    <p>
+      <%= f.check_box :meet_for_coffee %>
+      <strong>meet for a coffee</strong>
+     </p>
+  </div>
+  <div class="form-group">
+    <p>
+      <%= f.check_box :attend_meetings %>
+      <strong>attend meetings together</strong>
+    </p>
+  </div>
+  <div class="form-group">
+    <p>
+      <%= f.check_box :be_mentor %>
+      <strong>be a mentor</strong>
+    </p>
+  </div>
+  <div class="form-group">
+    <p>
+      <%= f.text_field :own_like_string  %>
+    </p>
+  </div>
+  <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
