@@ -12,9 +12,9 @@
         <p><%= @profile.company %></p>
         <p><%= @profile.city %></p>
         <p><%= @profile.aboutme %></p>
-        <p><%= @profile.twitter_url %></p>
-        <p><%= @profile.xing_url %></p>
-        <p><%= @profile.linkedin_url %></p>
+        <p>
+          <%= render partial: 'shared/social_links', locals: { profile: @profile } %>
+        </p>
 
         <% if @profile.user == current_user %>
           <%= link_to edit_profile_path(@profile) do %>
@@ -22,7 +22,6 @@
             Edit
           <% end %>
         <% end %>
-
       </div>
     </div>
   </div>
