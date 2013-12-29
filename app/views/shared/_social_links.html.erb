@@ -1,0 +1,16 @@
+<% unless profile.twitter_handle.blank? %>
+  <a href="https://twitter.com/<%= profile.twitter_handle %>" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @<%= profile.twitter_handle %></a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<% end %>
+
+<% unless profile.xing_handle.blank? %>
+  <p>
+    <a href="https://xing.com/profiles/<%= profile.xing_handle %>">XING</a>
+  </p>
+<% end %>
+
+<% unless profile.linkedin_handle.blank? %>
+  <p>
+    <a href="https://linkedin.com/pub/<%= profile.linkedin_handle %>">LinkedIn</a>
+  </p>
+<% end %>

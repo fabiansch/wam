@@ -22,6 +22,10 @@ describe Profile do
     it { should respond_to(:xing_url) }
     it { should respond_to(:linkedin_handle) }
     it { should respond_to(:linkedin_url) }
+    it { should respond_to(:meet_for_coffee) }
+    it { should respond_to(:attend_meetings) }
+    it { should respond_to(:be_mentor) }
+    it { should respond_to(:own_like_string) }
   end
 
   describe "all class methods are accessible" do
