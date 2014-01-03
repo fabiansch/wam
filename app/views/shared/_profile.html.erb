@@ -1,0 +1,22 @@
+<div class="box panel panel-default">
+  <% if current_user %>
+    <%= link_to image_tag(profile.gravatar_url(:medium)), profile %>
+  <% else %>
+    <%= image_tag(profile.gravatar_url(:medium)) %>
+  <% end %>
+  <div class="panel-body">
+    <%= profile.name %></br>
+    <%= profile.job %></br>
+    <%= profile.city %></br>
+    <% if profile.user == current_user %>
+      <%= link_to edit_profile_path(profile) do %>
+        <span class="glyphicon glyphicon-edit"></span>
+        Edit
+      <% end %>
+      <%= link_to profile, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <span class="glyphicon glyphicon-trash"></span>
+        Delete
+      <% end %>
+    <% end %>
+  </div>
+</div>

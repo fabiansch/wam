@@ -1,9 +1,17 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
 
-  def gravatar_url
+  def gravatar_url(size = nil)
     hash = Digest::MD5.hexdigest(gravatar_email) unless gravatar_email.blank?
     hash = Digest::MD5.hexdigest(user.email) if hash.blank?
+    case size
+    when :small
+      hash << '?s=40'
+    when :medium
+      hash << '?s=400'
+    when :big
+      hash << '?s=1024'
+    end
     "http://www.gravatar.com/avatar/#{hash}"
   end
 

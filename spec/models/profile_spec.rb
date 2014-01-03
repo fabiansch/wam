@@ -34,17 +34,53 @@ describe Profile do
   end
 
   describe "image url" do
-    it "returns user email hash if no gravatar email is given" do
-      profile = FactoryGirl.create(:profile)
-      profile.user = FactoryGirl.create(:user)
-      profile.user.email = 'hallo@wam.com'
-      expect(profile.gravatar_url).to eq('http://www.gravatar.com/avatar/1a0dc1158248d76b300740262f2c0667')
+    describe "without gravatar url" do
+      before(:each) do
+        @profile = FactoryGirl.create(:profile)
+        @profile.user = FactoryGirl.create(:user)
+        @profile.user.email = 'hallo@wam.com'
+        @url = 'http://www.gravatar.com/avatar/1a0dc1158248d76b300740262f2c0667'
+      end
+
+      it "returns user email hash if no gravatar email is given" do
+        expect(@profile.gravatar_url).to eq(@url)
+      end
+
+      it "returns a image url with small size" do
+        expect(@profile.gravatar_url(:small)).to eq("#{@url}?s=40")
+      end
+
+      it "returns a image url with medium size" do
+        expect(@profile.gravatar_url(:medium)).to eq("#{@url}?s=400")
+      end
+
+      it "returns a image url with big size" do
+        expect(@profile.gravatar_url(:big)).to eq("#{@url}?s=1024")
+      end
     end
 
-    it "returns a valid gravatar image url" do
-      profile = FactoryGirl.create(:profile)
-      profile.gravatar_email = '123456@wam.com'
-      expect(profile.gravatar_url).to eq('http://www.gravatar.com/avatar/7bed7e6074236f335598d8b3c7b5cbe4')
+    describe "with gravatar url" do
+      before(:each) do
+        @profile = FactoryGirl.create(:profile)
+        @profile.gravatar_email = '123456@wam.com'
+        @url = 'http://www.gravatar.com/avatar/7bed7e6074236f335598d8b3c7b5cbe4'
+      end
+
+      it "returns a valid gravatar image url" do
+        expect(@profile.gravatar_url).to eq(@url)
+      end
+
+      it "returns a image url with small size" do
+        expect(@profile.gravatar_url(:small)).to eq("#{@url}?s=40")
+      end
+
+      it "returns a image url with medium size" do
+        expect(@profile.gravatar_url(:medium)).to eq("#{@url}?s=400")
+      end
+
+      it "returns a image url with big size" do
+        expect(@profile.gravatar_url(:big)).to eq("#{@url}?s=1024")
+      end
     end
   end
 
