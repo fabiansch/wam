@@ -30,6 +30,6 @@ class Profile < ActiveRecord::Base
   def self.allowed_params
     [:name, :job, :city, :aboutme, :gravatar_email, :company,
       :twitter_handle, :xing_handle, :linkedin_handle,
-      :meet_for_coffee, :attend_meetings, :be_mentor, :own_like_string]
+      :meet_for_coffee, :attend_meetings, :be_mentor, :own_like_string, :own_like_boolean]
   end
 end

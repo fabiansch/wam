@@ -26,6 +26,7 @@ describe Profile do
     it { should respond_to(:attend_meetings) }
     it { should respond_to(:be_mentor) }
     it { should respond_to(:own_like_string) }
+    it { should respond_to(:own_like_boolean) }
   end
 
   describe "all class methods are accessible" do
