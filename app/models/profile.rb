@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
+  validates_length_of :aboutme, maximum: 140, allow_blank: true
 
   def gravatar_url(size = nil)
     hash = Digest::MD5.hexdigest(gravatar_email) unless gravatar_email.blank?
