@@ -1,0 +1,45 @@
+<div class="form-group">
+  <p>
+    <strong>I would like to ...</strong>
+  </p>
+</div>
+<div class="form-group">
+  <p>
+    <% if profile.meet_for_coffee %>
+      <span class="glyphicon glyphicon-check"></span>
+    <% else %>
+      <span class="glyphicon glyphicon-unchecked"></span>
+    <% end %>
+    <strong>meet for a coffee</strong>
+  </p>
+</div>
+<div class="form-group">
+  <p>
+    <% if profile.attend_meetings %>
+      <span class="glyphicon glyphicon-check"></span>
+    <% else %>
+      <span class="glyphicon glyphicon-unchecked"></span>
+    <% end %>
+    <strong>attend meetings together</strong>
+  </p>
+</div>
+<div class="form-group">
+  <p>
+    <% if profile.be_mentor %>
+      <span class="glyphicon glyphicon-check"></span>
+    <% else %>
+      <span class="glyphicon glyphicon-unchecked"></span>
+    <% end %>
+    <strong>be a mentor</strong>
+  </p>
+</div>
+<% if profile.own_like_string.present? %>
+  <div class="form-group">
+    <p>
+      <% if profile.own_like_boolean %>
+        <span class="glyphicon glyphicon-check"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-unchecked"></span>
+      <% end %>
+      <%= label(:post,profile.own_like_string) %>
+<% end %>
