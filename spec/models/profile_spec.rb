@@ -29,6 +29,26 @@ describe Profile do
     it { should respond_to(:own_like_boolean) }
   end
 
+  describe "has a valid about me description" do
+    before(:each) do
+      @profile = FactoryGirl.create(:profile)
+    end
+
+    it "is valid with 140 chars" do
+      string = ""
+      140.times { string.concat("n") }
+      @profile.aboutme = string
+      expect(@profile).to be_valid
+    end
+
+    it "is invalid with 141 chars" do
+      string = ""
+      141.times { string.concat("n") }
+      @profile.aboutme = string
+      expect(@profile).to_not be_valid
+    end
+  end
+
   describe "all class methods are accessible" do
     subject { Profile }
     it { should respond_to(:allowed_params) }
