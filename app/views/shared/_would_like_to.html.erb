@@ -5,7 +5,7 @@
 </div>
 <div class="form-group">
   <p>
-    <% if profile.meet_for_coffee==true %>
+    <% if profile.meet_for_coffee %>
       <span class="glyphicon glyphicon-check"></span>
     <% else %>
       <span class="glyphicon glyphicon-unchecked"></span>
@@ -15,7 +15,7 @@
 </div>
 <div class="form-group">
   <p>
-    <% if profile.attend_meetings==true %>
+    <% if profile.attend_meetings %>
       <span class="glyphicon glyphicon-check"></span>
     <% else %>
       <span class="glyphicon glyphicon-unchecked"></span>
@@ -25,7 +25,7 @@
 </div>
 <div class="form-group">
   <p>
-    <% if profile.be_mentor==true %>
+    <% if profile.be_mentor %>
       <span class="glyphicon glyphicon-check"></span>
     <% else %>
       <span class="glyphicon glyphicon-unchecked"></span>
@@ -36,7 +36,7 @@
 <% if profile.own_like_string.present? %>
   <div class="form-group">
     <p>
-      <% if profile.own_like_boolean==true %>
+      <% if profile.own_like_boolean %>
         <span class="glyphicon glyphicon-check"></span>
       <% else %>
         <span class="glyphicon glyphicon-unchecked"></span>
