@@ -5,12 +5,12 @@
 
 <% unless profile.xing_handle.blank? %>
   <p>
-    <a href="https://xing.com/profiles/<%= profile.xing_handle %>">XING</a>
+    <a href="https://xing.com/profiles/<%= profile.xing_handle %>" target="_blank">XING</a>
   </p>
 <% end %>
 
 <% unless profile.linkedin_handle.blank? %>
   <p>
-    <a href="https://linkedin.com/pub/<%= profile.linkedin_handle %>">LinkedIn</a>
+    <a href="https://linkedin.com/pub/<%= profile.linkedin_handle %>" target="_blank">LinkedIn</a>
   </p>
 <% end %>
