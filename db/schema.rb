@@ -17,14 +17,10 @@ ActiveRecord::Schema.define(version: 20140104120912) do
     t.string   "name"
     t.string   "job"
     t.string   "city"
-    t.text     "aboutme",            limit: 255
+    t.text     "aboutme",          limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
     t.string   "gravatar_email"
     t.string   "company"
     t.string   "twitter_handle"
