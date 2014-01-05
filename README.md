@@ -1,7 +1,7 @@
 # We are many
 
-[![Build Status](https://travis-ci.org/fabiansch/wam.png?branch=master)](https://travis-ci.org/fabiansch/wam)
-[![Coverage Status](https://coveralls.io/repos/fabiansch/wam/badge.png)](https://coveralls.io/r/fabiansch/wam)
+[![Build Status](https://travis-ci.org/wearemany/web.png?branch=master)](https://travis-ci.org/wearemany/web)
+[![Coverage Status](https://coveralls.io/repos/wearemany/web/badge.png)](https://coveralls.io/r/wearemany/web)
 
 ## Run the server
 
