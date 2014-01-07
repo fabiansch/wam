@@ -1,0 +1,66 @@
+<div class="form-group">
+  <p>
+    <strong>I want to talk about ...</strong>
+  </p>
+</div>
+<% if profile.talk_about_string_1.present? %>
+  <div class="form-group">
+    <p>
+      <% if profile.talk_about_boolean_1 %>
+        <span class="glyphicon glyphicon-check"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-unchecked"></span>
+      <% end %>
+      <%= label(:post,profile.talk_about_string_1) %>
+    <p>
+  </div>
+<% end %>
+<% if profile.talk_about_string_2.present? %>
+  <div class="form-group">
+    <p>
+      <% if profile.talk_about_boolean_2 %>
+        <span class="glyphicon glyphicon-check"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-unchecked"></span>
+      <% end %>
+      <%= label(:post,profile.talk_about_string_2) %>
+    </p>
+  </div>
+<% end %>
+<% if profile.talk_about_string_3.present? %>
+  <div class="form-group">
+    <p>
+      <% if profile.talk_about_boolean_3 %>
+        <span class="glyphicon glyphicon-check"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-unchecked"></span>
+      <% end %>
+      <%= label(:post,profile.talk_about_string_3) %>
+    </p>
+  </div>
+<% end %>
+<% if profile.talk_about_string_4.present? %>
+  <div class="form-group">
+    <p>
+      <% if profile.talk_about_boolean_4 %>
+        <span class="glyphicon glyphicon-check"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-unchecked"></span>
+      <% end %>
+      <%= label(:post,profile.talk_about_string_4) %>
+    </p>
+  </div>
+<% end %>
+<% if profile.talk_about_string_5.present? %>
+  <div class="form-group">
+    <p>
+      <% if profile.talk_about_boolean_5 %>
+        <span class="glyphicon glyphicon-check"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-unchecked"></span>
+      <% end %>
+      <%= label(:post,profile.talk_about_string_5) %>
+    </p>
+  </div>
+<% end %>
+

@@ -18,6 +18,9 @@
         <p>
           <%= render partial: 'shared/would_like_to', locals: { profile: @profile } %>
         </p>
+        <p>
+          <%= render partial: 'shared/want_talk_about', locals: { profile: @profile } %>
+        </p>
 
         <% if @profile.user == current_user %>
           <%= link_to edit_profile_path(@profile) do %>

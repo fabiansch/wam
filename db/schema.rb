@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140104120912) do
+ActiveRecord::Schema.define(version: 20140107164512) do
 
   create_table "profiles", force: true do |t|
     t.string   "name"
     t.string   "job"
     t.string   "city"
-    t.text     "aboutme",          limit: 255
+    t.text     "aboutme",              limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20140104120912) do
     t.boolean  "be_mentor"
     t.string   "own_like_string"
     t.boolean  "own_like_boolean"
+    t.string   "talk_about_string_1"
+    t.string   "talk_about_string_2"
+    t.string   "talk_about_string_3"
+    t.string   "talk_about_string_4"
+    t.string   "talk_about_string_5"
+    t.boolean  "talk_about_boolean_1"
+    t.boolean  "talk_about_boolean_2"
+    t.boolean  "talk_about_boolean_3"
+    t.boolean  "talk_about_boolean_4"
+    t.boolean  "talk_about_boolean_5"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
