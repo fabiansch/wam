@@ -22,6 +22,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'debugger'
+  gem "capybara", "~> 2.2.1"
 end
 
 group :production do
