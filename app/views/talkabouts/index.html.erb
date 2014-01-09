@@ -1,0 +1,29 @@
+<h1>Listing talkabouts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Check</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @talkabouts.each do |talkabout| %>
+      <tr>
+        <td><%= talkabout.content %></td>
+        <td><%= talkabout.check %></td>
+        <td><%= link_to 'Show', talkabout %></td>
+        <td><%= link_to 'Edit', edit_talkabout_path(talkabout) %></td>
+        <td><%= link_to 'Destroy', talkabout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Talkabout', new_talkabout_path %>
