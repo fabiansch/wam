@@ -1,4 +1,6 @@
 Wam::Application.routes.draw do
+  resources :talkabouts
+
   resources :profiles
 
   devise_for :users

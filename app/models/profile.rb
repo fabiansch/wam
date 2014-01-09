@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, :dependent => :destroy
+  has_many :talkabouts, :dependent => :destroy
   validates_length_of :aboutme, maximum: 140, allow_blank: true
 
   def gravatar_url(size = nil)
