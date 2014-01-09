@@ -1,5 +1,5 @@
 class Profile < ActiveRecord::Base
-  belongs_to :user, :dependent => :destroy
+  belongs_to :user
   has_many :talkabouts, :dependent => :destroy
   validates_length_of :aboutme, maximum: 140, allow_blank: true
 
