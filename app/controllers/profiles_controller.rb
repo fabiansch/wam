@@ -15,6 +15,9 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    if @profile.talkabouts.empty?
+      5.times { @profile.talkabouts.build}
+    end
   end
 
   def create
