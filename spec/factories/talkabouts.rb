@@ -1,8 +1,8 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+require 'faker'
 
 FactoryGirl.define do
-  factory :talkabout do
-    content "MyString"
-    check false
+  factory :talkabout do |f|
+    f.content 'Want to talk about programming.'
+    f.check true
   end
 end
