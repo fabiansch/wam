@@ -11,6 +11,7 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = current_user.build_profile
+    5.times { @profile.talkabouts.build}
   end
 
   def edit

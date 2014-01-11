@@ -1,8 +1,8 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
   has_many :talkabouts, :dependent => :destroy
+  accepts_nested_attributes_for :talkabouts
   validates_length_of :aboutme, maximum: 140, allow_blank: true
-
   def gravatar_url(size = nil)
     hash = Digest::MD5.hexdigest(gravatar_email) unless gravatar_email.blank?
     hash = Digest::MD5.hexdigest(user.email) if hash.blank?
@@ -32,6 +32,7 @@ class Profile < ActiveRecord::Base
   def self.allowed_params
     [:name, :job, :city, :aboutme, :gravatar_email, :company,
       :twitter_handle, :xing_handle, :linkedin_handle,
-      :meet_for_coffee, :attend_meetings, :be_mentor, :own_like_string, :own_like_boolean]
+      :meet_for_coffee, :attend_meetings, :be_mentor, :own_like_string, :own_like_boolean,
+      talkabouts_attributes:[:id,:content,:check]]
   end
 end

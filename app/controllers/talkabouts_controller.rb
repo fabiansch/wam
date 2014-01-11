@@ -53,6 +53,6 @@ class TalkaboutsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def talkabout_params
-      params.require(:talkabout).permit(:content, :check)
+      params.require(:talkabout).permit(Talkabout.allowed_params)
     end
 end
