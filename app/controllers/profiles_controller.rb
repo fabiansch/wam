@@ -11,12 +11,12 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = current_user.build_profile
-    5.times { @profile.talkabouts.build}
+    5.times { @profile.talkabouts.build }
   end
 
   def edit
-    if @profile.talkabouts.empty?
-      5.times { @profile.talkabouts.build}
+    if @profile.talkabouts.nil?
+      5.times { @profile.talkabouts.build }
     end
   end
 
