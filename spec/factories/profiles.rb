@@ -11,7 +11,7 @@ FactoryGirl.define do
       ignore do
         talkabouts_count 5
       end
-      after(:create) do |profile, evaluator|
+      before(:create) do |profile, evaluator|
         create_list(:talkabout, evaluator.talkabouts_count, profile: profile)
         profile.reload
       end
