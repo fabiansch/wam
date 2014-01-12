@@ -11,9 +11,11 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = current_user.build_profile
+    @profile.build_talkabouts
   end
 
   def edit
+    @profile.build_talkabouts
   end
 
   def create

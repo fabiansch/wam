@@ -1,0 +1,19 @@
+<div class="form-group">
+  <p>
+    <strong>I want talk about ...</strong>
+  </p>
+</div>
+<% profile.talkabouts.each do |talkabout| %>
+  <% if talkabout.content.present? %>
+    <div class="form-group">
+      <p>
+        <% if talkabout.check %>
+          <span class="glyphicon glyphicon-check"></span>
+        <% else %>
+          <span class="glyphicon glyphicon-unchecked"></span>
+        <% end %>
+        <%= label(:post,talkabout.content) %>
+      </p>
+    </div>
+  <% end %>
+<% end %>

@@ -152,4 +152,20 @@ describe Profile do
       expect(@profile.linkedin_url).to be_blank
     end
   end
+
+  describe "talkabouts" do
+    before(:all) do
+      @profile_with_talkabouts = FactoryGirl.create(:profile_with_talkabouts)
+    end
+    
+    it "exits five talkabouts" do
+      expect(@profile_with_talkabouts.talkabouts.length).to eq(5)
+    end
+
+    it "delete also five talkabouts if profile will be deleted" do
+      profile_id = @profile_with_talkabouts.id
+      @profile_with_talkabouts.destroy
+      expect(Talkabout.where("profile_id = '#{profile_id}'")).to eq([])
+    end
+  end
 end
