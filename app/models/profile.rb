@@ -29,6 +29,12 @@ class Profile < ActiveRecord::Base
     "https://www.linkedin.com/#{linkedin_handle}" unless linkedin_handle.blank?
   end
 
+  def build_talkabouts
+    if talkabouts.empty?
+      5.times { talkabouts.build }
+    end
+  end
+
   def self.allowed_params
     [:name, :job, :city, :aboutme, :gravatar_email, :company,
       :twitter_handle, :xing_handle, :linkedin_handle,
